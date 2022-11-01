@@ -1,15 +1,17 @@
 <template>
-  <main class="container"></main>
-  <Event></Event>
+  <main class="container">
+    {{ store.state.visibleEvents }}
+    <EventDay></EventDay>
+  </main>
 </template>
 <script>
-import Event from "./Event.vue";
+import EventDay from "./EventDay.vue";
 import { inject } from "vue";
 
 export default {
-  name: "EventList",
+  name: "Timeline",
   components: {
-    Event,
+    EventDay,
   },
   setup() {
     const store = inject("store");

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import store from "@/store";
+import store from "./store";
 import { provide } from "vue";
 import Timeline from "./components/Timeline.vue";
 import Search from "./components/Search.vue";
@@ -34,9 +34,6 @@ export default {
       .get("https://tlv-events-app.herokuapp.com/events/uk/london")
       .then(function (response) {
         store.state.allEvents = response.data;
-        store.state.allEvents.forEach(function (el) {
-          console.log(el.title);
-        });
       });
   },
   name: "App",
@@ -44,6 +41,11 @@ export default {
     Timeline,
     Search,
     ShoppingCart,
+  },
+  methods: {},
+  updated() {
+    const searchQuery = store.state.searchQuery;
+    console.log(searchQuery);
   },
 };
 </script>

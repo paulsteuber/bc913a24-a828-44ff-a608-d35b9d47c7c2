@@ -7,6 +7,7 @@
         class="form-control"
         :placeholder="placeholder"
         v-model="store.state.searchQuery"
+        @keyup="searchQueryHasChanged()"
       />
     </div>
   </div>
@@ -14,6 +15,7 @@
 
 <script>
 import { inject } from "vue";
+//import { eventDates } from "./../helpers/format";
 
 export default {
   name: "Search",
@@ -21,6 +23,36 @@ export default {
   setup() {
     const store = inject("store");
     return { store };
+  },
+  methods: {
+    searchQueryHasChanged: function () {
+      /** sort all events by date, filter by search query, remove selected events to shoppingcart */
+      const searchQuery = this.store.state.searchQuery.toLowerCase();
+      const allEvents = this.store.state.allEvents;
+      const shoppingCartEvents = this.store.state.shoppingCartEvents;
+      this.store.state.visibleEvents = [{}];
+
+      let visibleEvents = [];
+      allEvents.forEach((event) => {
+        /** search query matches with event title */
+        const eventTitle = event.title.toLowerCase();
+        if (!eventTitle.includes(searchQuery)) {
+          return;
+        }
+        visibleEvents.push(event);
+      });
+      /** remove all selected shopping cart events from visibleEvents array */
+      shoppingCartEvents.forEach((shoppingCartEvent) => {
+        visibleEvents = visibleEvents.filter(
+          (visEvent) => visEvent._id !== shoppingCartEvent._id
+        );
+      });
+    },
+    sortEventsByDate: function (events) {
+      events.sort(function (a, b) {
+        return a.getTime() - b.getTime();
+      });
+    },
   },
 };
 </script>
