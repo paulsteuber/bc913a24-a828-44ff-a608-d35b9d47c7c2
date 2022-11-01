@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <header class="header container-fluid">
-    <div class="row">
-      <div class="container">
-        <div class="d-flex justify-content-between">
-          <Search></Search>
-          <ShoppingCart></ShoppingCart>
+  <div class="inner-body">
+    <div class="inner-body-main">
+      <header class="header container-fluid py-3">
+        <div class="container-xl">
+          <div class="d-flex justify-content-between">
+            <Search placeholder="Search"></Search>
+          </div>
         </div>
-      </div>
+      </header>
+      <main>
+        <div class="container">
+          <Timeline></Timeline>
+        </div>
+      </main>
     </div>
-  </header>
-  <main>
-    <div class="container">
-      <EventList></EventList>
-    </div>
-  </main>
+    <aside class="inner-body-right">
+      <ShoppingCart></ShoppingCart>
+    </aside>
+  </div>
 </template>
 
 <script>
 import store from "@/store";
 import { provide } from "vue";
-import EventList from "./components/EventList.vue";
+import Timeline from "./components/Timeline.vue";
 import Search from "./components/Search.vue";
 import ShoppingCart from "./components/ShoppingCart.vue";
 const axios = require("axios").default;
@@ -38,7 +41,7 @@ export default {
   },
   name: "App",
   components: {
-    EventList,
+    Timeline,
     Search,
     ShoppingCart,
   },
