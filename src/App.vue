@@ -1,7 +1,20 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
-  <EventList></EventList>
+  <header class="header container-fluid">
+    <div class="row">
+      <div class="container">
+        <div class="d-flex justify-content-between">
+          <Search></Search>
+          <ShoppingCart></ShoppingCart>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <EventList></EventList>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -32,7 +45,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+$primary: rgb(0, 166, 216);
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,5 +54,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: $primary;
+  .header {
+    background-color: $primary;
+  }
 }
 </style>
