@@ -1,4 +1,17 @@
-export function eventDates(event) {
-  console.log("EVE", event);
-  return new Date(event.date);
+export function groupEventByDay(events) {
+  // this gives an object with dates as keys
+  let groupArray = {};
+  events.forEach((event) => {
+    const date = event.date.split("T")[0];
+    if (groupArray[date]) {
+      groupArray[date].events.push(event);
+    } else {
+      let newDay = {
+        date: date,
+        events: [event],
+      };
+      groupArray[date] = newDay;
+    }
+  });
+  return groupArray;
 }

@@ -15,7 +15,7 @@
 
 <script>
 import { inject } from "vue";
-//import { eventDates } from "./../helpers/format";
+import { groupEventByDay } from "./../helpers/format";
 
 export default {
   name: "Search",
@@ -51,6 +51,10 @@ export default {
       visibleEvents = visibleEvents.sort(function (a, b) {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
       });
+
+      /**group events by day */
+      const eventsByDay = groupEventByDay(visibleEvents);
+      this.store.state.visibleEvents = eventsByDay;
     },
   },
 };

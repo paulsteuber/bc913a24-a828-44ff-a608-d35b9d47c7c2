@@ -1,7 +1,12 @@
 <template>
   <main class="container">
-    {{ store.state.visibleEvents }}
-    <EventDay></EventDay>
+    <div
+      class="day-wrapper"
+      v-for="day in store.state.visibleEvents"
+      :key="day.date"
+    >
+      <EventDay :day-data="day"></EventDay>
+    </div>
   </main>
 </template>
 <script>
