@@ -1,10 +1,10 @@
 <template>
-  <div class="inner-event" :id="eventData._id">
+  <div class="inner-event shadow" :id="eventData._id">
     <div class="image-wrapper">
-      {{ eventData }}
-      ######
-      {{ eventData.flyerFront }}
       <img :src="eventData.flyerFront" :alt="eventData.title" loading="lazy" />
+    </div>
+    <div class="content-wrapper p-3">
+      <h2 class="title">{{ eventData.title }}</h2>
     </div>
   </div>
 </template>
@@ -19,5 +19,10 @@ export default {
     const store = inject("store");
     return { store };
   },
+  methods: {},
 };
 </script>
+<style lang="sass" scoped>
+img
+  max-width: 100%
+</style>

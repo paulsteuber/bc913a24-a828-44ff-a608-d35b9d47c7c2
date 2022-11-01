@@ -16,6 +16,7 @@
 <script>
 import { inject } from "vue";
 import { groupEventByDay } from "./../helpers/format";
+const axios = require("axios").default;
 
 export default {
   name: "Search",
@@ -23,6 +24,16 @@ export default {
   setup() {
     const store = inject("store");
     return { store };
+  },
+  mounted() {
+    const store = inject("store");
+    let self = this;
+    axios
+      .get("https://tlv-events-app.herokuapp.com/events/uk/london")
+      .then(function (response) {
+        store.state.allEvents = response.data;
+        self.searchQueryHasChanged();
+      });
   },
   methods: {
     searchQueryHasChanged: function () {
@@ -32,15 +43,20 @@ export default {
       const shoppingCartEvents = this.store.state.shoppingCartEvents;
       this.store.state.visibleEvents = [{}];
 
-      let visibleEvents = [];
-      allEvents.forEach((event) => {
-        /** search query matches with event title */
-        const eventTitle = event.title.toLowerCase();
-        if (!eventTitle.includes(searchQuery)) {
-          return;
-        }
-        visibleEvents.push(event);
-      });
+      let visibleEvents = JSON.parse(JSON.stringify(allEvents));
+      console.log("HUHU", visibleEvents);
+      if (searchQuery.length) {
+        visibleEvents = [];
+        allEvents.forEach((event) => {
+          /** search query matches with event title */
+          const eventTitle = event.title.toLowerCase();
+          if (!eventTitle.includes(searchQuery)) {
+            return;
+          }
+          visibleEvents.push(event);
+        });
+      }
+
       /** remove all selected shopping cart events from visibleEvents array */
       shoppingCartEvents.forEach((shoppingCartEvent) => {
         visibleEvents = visibleEvents.filter(

@@ -15,3 +15,8 @@ export function groupEventByDay(events) {
   });
   return groupArray;
 }
+
+export function germanDay(stringDate) {
+  const date = new Date(stringDate);
+  return date.toLocaleDateString("de-DE");
+}
