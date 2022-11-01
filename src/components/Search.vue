@@ -47,10 +47,9 @@ export default {
           (visEvent) => visEvent._id !== shoppingCartEvent._id
         );
       });
-    },
-    sortEventsByDate: function (events) {
-      events.sort(function (a, b) {
-        return a.getTime() - b.getTime();
+      /** sort events by date for next step */
+      visibleEvents = visibleEvents.sort(function (a, b) {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
       });
     },
   },
