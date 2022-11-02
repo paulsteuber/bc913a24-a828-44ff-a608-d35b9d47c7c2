@@ -1,5 +1,5 @@
 <template>
-  <div class="search-wrapper d-flex">
+  <div class="search-wrapper d-flex align-items-center">
     <div class="icon px-3"><i class="bi bi-search"></i></div>
     <div class="input-wrapper">
       <input
@@ -44,7 +44,6 @@ export default {
       this.store.state.visibleEvents = [{}];
 
       let visibleEvents = JSON.parse(JSON.stringify(allEvents));
-      console.log("HUHU", visibleEvents);
       if (searchQuery.length) {
         visibleEvents = [];
         allEvents.forEach((event) => {
@@ -56,7 +55,6 @@ export default {
           visibleEvents.push(event);
         });
       }
-
       /** remove all selected shopping cart events from visibleEvents array */
       shoppingCartEvents.forEach((shoppingCartEvent) => {
         visibleEvents = visibleEvents.filter(
@@ -71,6 +69,7 @@ export default {
       /**group events by day */
       const eventsByDay = groupEventByDay(visibleEvents);
       this.store.state.visibleEvents = eventsByDay;
+      this.store.state.eventsInit = true;
     },
   },
 };

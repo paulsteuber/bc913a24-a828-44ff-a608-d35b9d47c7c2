@@ -4,9 +4,10 @@ import { reactive } from "vue";
 const state = reactive({
   allEvents: [{}],
   shoppingCartEvents: [],
-  visibleEvents: [{}],
+  visibleEvents: [],
   searchQuery: "",
   shoppingCartVisible: false,
+  eventsInit: false,
 });
 
 export default { state };

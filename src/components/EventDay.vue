@@ -55,6 +55,7 @@ export default {
   .day-header
     top: 70px
     position: sticky
+    pointer-events: none
     .day-headline
         background-color: var(--bs-cyan)
         border-radius: var(--bs-border-radius-xl)

@@ -20,3 +20,8 @@ export function germanDay(stringDate) {
   const date = new Date(stringDate);
   return date.toLocaleDateString("de-DE");
 }
+
+export function truncateStr(str, len) {
+  str = str.length < len ? str : str.substring(0, len) + "...";
+  return str;
+}

@@ -19,15 +19,14 @@
         </div>
       </main>
     </div>
-    <aside class="inner-body-right">
-      <ShoppingCart></ShoppingCart>
-    </aside>
+
+    <ShoppingCart></ShoppingCart>
   </div>
 </template>
 
 <script>
 import store from "./store";
-import { provide, inject } from "vue";
+import { provide } from "vue";
 import Timeline from "./components/Timeline.vue";
 import Search from "./components/Search.vue";
 import ShoppingCart from "./components/ShoppingCart.vue";
@@ -35,7 +34,6 @@ import ShoppingCartBtn from "./components/ShoppingCartBtn.vue";
 export default {
   setup() {
     provide("store", store);
-    inject("store", store);
   },
   name: "App",
   components: {
@@ -59,10 +57,4 @@ export default {
     z-index: 99
   .inner-body-main
     position: relative
-  .inner-body-right
-    position: fixed
-    top: 0
-    right: 0
-    min-width: 240px
-    width: 40vw
 </style>
