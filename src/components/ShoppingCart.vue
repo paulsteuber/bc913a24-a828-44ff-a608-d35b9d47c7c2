@@ -1,3 +1,9 @@
+<template>
+  <div>
+    {{ store.state.shoppingCartEvents }}
+  </div>
+</template>
+
 <script>
 import { inject } from "vue";
 

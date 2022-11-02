@@ -1,7 +1,9 @@
 <template>
-  <div class="day shadow my-3">
-    <div class="day-header p-4 shadow-sm">
-      <h3>{{ dayHeadline }}</h3>
+  <div class="day shadow my-4">
+    <div class="day-header p-4">
+      <h3 class="day-headline p-2 shadow-sm d-inline-block">
+        {{ dayHeadline }}
+      </h3>
     </div>
     <div class="events p-4">
       <div class="row">
@@ -49,8 +51,13 @@ export default {
 </script>
 <style lang="sass" scoped>
 .day
+  border-radius: var(--bs-border-radius-xl)
   .day-header
     top: 70px
     position: sticky
-    background-color: white
+    .day-headline
+        background-color: var(--bs-cyan)
+        border-radius: var(--bs-border-radius-xl)
+        color: white
+        font-weight: 700
 </style>

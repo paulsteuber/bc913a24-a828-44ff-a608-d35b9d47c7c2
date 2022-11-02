@@ -75,9 +75,8 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.icon {
-  font-size: 24px;
-  color: white;
-}
+<style lang="sass" scoped>
+.bi
+  font-size: 18px
+  color: white
 </style>
