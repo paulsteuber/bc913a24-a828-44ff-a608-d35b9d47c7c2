@@ -15,7 +15,12 @@
 
 <script>
 import { inject } from "vue";
-import { groupEventByDay } from "./../helpers/format";
+import {
+  groupEventByDay,
+  sortEventsByDate,
+  filterEvents,
+  filterByQuery,
+} from "./../helpers/format";
 const axios = require("axios").default;
 
 export default {
@@ -37,34 +42,21 @@ export default {
   },
   methods: {
     searchQueryHasChanged: function () {
-      /** sort all events by date, filter by search query, remove selected events to shoppingcart */
-      const searchQuery = this.store.state.searchQuery.toLowerCase();
+      // clear array
+      this.store.state.visibleEvents = [];
+      const searchQuery = this.store.state.searchQuery;
       const allEvents = this.store.state.allEvents;
-      const shoppingCartEvents = this.store.state.shoppingCartEvents;
-      this.store.state.visibleEvents = [{}];
 
-      let visibleEvents = JSON.parse(JSON.stringify(allEvents));
-      if (searchQuery.length) {
-        visibleEvents = [];
-        allEvents.forEach((event) => {
-          /** search query matches with event title */
-          const eventTitle = event.title.toLowerCase();
-          if (!eventTitle.includes(searchQuery)) {
-            return;
-          }
-          visibleEvents.push(event);
-        });
-      }
+      /** sort all events by date, filter by search query, remove selected events to shoppingcart */
+      let visibleEvents = filterByQuery(searchQuery, allEvents);
       /** remove all selected shopping cart events from visibleEvents array */
-      shoppingCartEvents.forEach((shoppingCartEvent) => {
-        visibleEvents = visibleEvents.filter(
-          (visEvent) => visEvent._id !== shoppingCartEvent._id
-        );
-      });
+      visibleEvents = filterEvents(
+        visibleEvents,
+        this.store.state.shoppingCartEvents
+      );
+
       /** sort events by date for next step */
-      visibleEvents = visibleEvents.sort(function (a, b) {
-        return new Date(a.date).getTime() - new Date(b.date).getTime();
-      });
+      visibleEvents = sortEventsByDate(visibleEvents);
 
       /**group events by day */
       const eventsByDay = groupEventByDay(visibleEvents);

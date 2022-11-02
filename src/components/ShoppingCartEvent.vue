@@ -18,7 +18,13 @@
 </template>
 <script>
 import { inject } from "vue";
-import { germanDay, groupEventByDay } from "../helpers/format";
+import {
+  germanDay,
+  filterByQuery,
+  filterEvents,
+  sortEventsByDate,
+  groupEventByDay,
+} from "../helpers/format";
 export default {
   name: "ShoppingCartEvent",
   props: ["eventData"],
@@ -43,6 +49,25 @@ export default {
       this.store.state.shoppingCartEvents = shoppingCartEvents;
 
       //Render everthing new
+      // clear array
+      this.store.state.visibleEvents = [];
+      const searchQuery = this.store.state.searchQuery;
+      const allEvents = this.store.state.allEvents;
+
+      /** sort all events by date, filter by search query, remove selected events to shoppingcart */
+      let visibleEvents = filterByQuery(searchQuery, allEvents);
+      /** remove all selected shopping cart events from visibleEvents array */
+      visibleEvents = filterEvents(
+        visibleEvents,
+        this.store.state.shoppingCartEvents
+      );
+
+      /** sort events by date for next step */
+      visibleEvents = sortEventsByDate(visibleEvents);
+
+      /**group events by day */
+      const eventsByDay = groupEventByDay(visibleEvents);
+      this.store.state.visibleEvents = eventsByDay;
     },
   },
 };
