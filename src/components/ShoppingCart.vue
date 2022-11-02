@@ -68,6 +68,7 @@ export default {
       font-size: 24px
   .list
     overflow-y: auto
+    height: 100%
     -ms-overflow-style: none /* IE and Edge */
     scrollbar-width: none
 

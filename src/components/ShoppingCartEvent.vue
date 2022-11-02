@@ -46,6 +46,9 @@ export default {
       let shoppingCartEvents = this.store.state.shoppingCartEvents.filter(
         (event) => event._id !== this.eventData._id
       );
+      if (shoppingCartEvents.length === 0) {
+        this.store.state.shoppingCartVisible = false;
+      }
       this.store.state.shoppingCartEvents = shoppingCartEvents;
 
       //Render everthing new

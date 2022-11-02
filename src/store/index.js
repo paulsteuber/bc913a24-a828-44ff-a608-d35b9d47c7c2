@@ -2,7 +2,7 @@
 import { reactive } from "vue";
 
 const state = reactive({
-  allEvents: [{}],
+  allEvents: [],
   shoppingCartEvents: [],
   visibleEvents: [],
   searchQuery: "",

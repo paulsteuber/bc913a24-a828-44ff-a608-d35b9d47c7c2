@@ -1,3 +1,13 @@
+export function germanDay(stringDate) {
+  const date = new Date(stringDate);
+  return date.toLocaleDateString("de-DE");
+}
+
+export function truncateStr(str, len) {
+  str = str.length < len ? str : str.substring(0, len) + "...";
+  return str;
+}
+
 export function groupEventByDay(events) {
   // this gives an object with dates as keys
   let groupArray = {};
@@ -14,16 +24,6 @@ export function groupEventByDay(events) {
     }
   });
   return groupArray;
-}
-
-export function germanDay(stringDate) {
-  const date = new Date(stringDate);
-  return date.toLocaleDateString("de-DE");
-}
-
-export function truncateStr(str, len) {
-  str = str.length < len ? str : str.substring(0, len) + "...";
-  return str;
 }
 
 export function sortEventsByDate(events) {

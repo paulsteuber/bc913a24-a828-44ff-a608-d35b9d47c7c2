@@ -1,13 +1,7 @@
 <template>
   <div class="inner-event shadow" :id="eventData._id">
     <div class="image-wrapper">
-      <img
-        :src="eventData.flyerFront"
-        :alt="eventData.title"
-        loading="lazy"
-        width="200"
-        height="200"
-      />
+      <img :src="eventData.flyerFront" :alt="eventData.title" loading="lazy" />
     </div>
     <div class="content-wrapper p-3">
       <h2 class="title h4 fw-bolder">{{ eventData.title }}</h2>
@@ -43,9 +37,6 @@ export default {
     return {
       shortLocationName: truncateStr(this.eventData.venue.name, 20),
     };
-  },
-  mounted() {
-    console.log(this.eventData);
   },
   methods: {
     addEventToShoppingCart: function () {
