@@ -21,6 +21,6 @@ npm run serve
 ```
 
 ## Navigate through Event App
-![alt text](https://github.com/paulsteuber/bc913a24-a828-44ff-a608-d35b9d47c7c2/blob/master/src/assets/teclead_coding1.png?raw=true)
+![alt text](src/assets/teclead_coding1.png?raw=true)
 
 
