@@ -30,8 +30,8 @@ export function truncateStr(str, len) {
 }
 /**
  *
- * @param {array} events
- * @returns
+ * @param {array} events contains multiple events as js object
+ * @returns events grouped by day as key value array
  */
 export function groupEventsByDay(events) {
   // this gives an object with dates as keys
@@ -50,18 +50,34 @@ export function groupEventsByDay(events) {
   });
   return groupArray;
 }
-
+/**
+ *
+ * @param {array} events contains multiple events as js object
+ * @returns same array but sorted by date
+ */
 export function sortEventsByDate(events) {
   return events.sort(function (a, b) {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
 }
+/**
+ *
+ * @param {array} eventArr
+ * @param {array} filterArr
+ * @returns eventArr but without the events that are in the filterArr
+ * */
 export function filterEvents(eventArr, filterArr) {
   filterArr.forEach((filterElem) => {
     eventArr = eventArr.filter((event) => event._id !== filterElem._id);
   });
   return eventArr;
 }
+/**
+ *
+ * @param {string} query
+ * @param {array} allEvents
+ * @returns an array which contains all events whose title matches the search query
+ */
 export function filterByQuery(query, allEvents) {
   query = query.toLowerCase();
 

@@ -51,12 +51,13 @@ export default {
       }
       this.store.state.shoppingCartEvents = shoppingCartEvents;
 
-      //Render everthing new
       // clear array
       this.store.state.visibleEvents = [];
+
       const searchQuery = this.store.state.searchQuery;
       const allEvents = this.store.state.allEvents;
 
+      //Render everthing new
       /** sort all events by date, filter by search query, remove selected events to shoppingcart */
       let visibleEvents = filterByQuery(searchQuery, allEvents);
       /** remove all selected shopping cart events from visibleEvents array */

@@ -37,6 +37,7 @@ export default {
       .get("https://tlv-events-app.herokuapp.com/events/uk/london")
       .then(function (response) {
         store.state.allEvents = response.data;
+        /** initial rendering */
         self.searchQueryHasChanged();
       });
   },
