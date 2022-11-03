@@ -29,7 +29,20 @@ While typing in the input field, the app filters all matching events.
 ![Search Function](src/assets/teclead_coding2.png?raw=true)
 
 ### Add Event to Shopping Cart
-You can add events to your Shopping Cart. After adding the event will disapear from the main list. 
+You can add events to your shopping cart. After adding the event to the shopping cart it will disappear from the main list. The shopping cart will open automatically if it is the first event which was added to the shopping cart, otherwise you have to open the shopping cart by clicking the shopping cart button in the header.
 
-
+#### Add Button
+Click this button to add the event to your shopping cart.
 ![Search Function](src/assets/teclead_coding3.png?raw=true)
+
+#### Open shopping cart
+Click this Icon to open the shopping cart list.
+![Search Function](src/assets/teclead_coding5.png?raw=true)
+
+#### Shopping cart overview
+All your choosen events will be displayed here. 
+![Search Function](src/assets/teclead_coding6.png?raw=true)
+
+#### Remove event from shopping cart
+Click the trash button to remove the event from your shopping cart. After removing it will disappear automatically in the main list, if the event matches with your current search query.
+![Search Function](src/assets/teclead_coding7.png?raw=true)
