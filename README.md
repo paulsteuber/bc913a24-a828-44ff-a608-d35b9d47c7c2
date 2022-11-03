@@ -33,16 +33,20 @@ You can add events to your shopping cart. After adding the event to the shopping
 
 #### Add Button
 Click this button to add the event to your shopping cart.
+
 ![Search Function](src/assets/teclead_coding3.png?raw=true)
 
 #### Open shopping cart
 Click this Icon to open the shopping cart list.
+
 ![Search Function](src/assets/teclead_coding5.png?raw=true)
 
 #### Shopping cart overview
 All your choosen events will be displayed here. 
+
 ![Search Function](src/assets/teclead_coding6.png?raw=true)
 
 #### Remove event from shopping cart
 Click the trash button to remove the event from your shopping cart. After removing it will disappear automatically in the main list, if the event matches with your current search query.
+
 ![Search Function](src/assets/teclead_coding7.png?raw=true)
