@@ -44,11 +44,18 @@ export default {
   },
 };
 </script>
+<style lang="sass">
+#app
+  .btn-primary
+    background-color: var(--bs-cyan)
+    border-color: var(--bs-cyan)
+  main
+    background-color: #f6f6f6
+</style>
 <style lang="sass" scoped>
 #app
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  background-color: #f6f6f6
   .header
     height: 70px
     background-color: var(--bs-cyan)

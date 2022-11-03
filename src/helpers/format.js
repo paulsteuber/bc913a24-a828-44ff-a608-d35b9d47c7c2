@@ -1,14 +1,39 @@
+/**
+ * @param {string} stringDate a string readable for js date class
+ * @returns day month and year in german format as string
+ */
+
 export function germanDay(stringDate) {
   const date = new Date(stringDate);
   return date.toLocaleDateString("de-DE");
 }
-
+/**
+ *
+ * @param {string} stringDate a string readable for js date class
+ * @returns time of day as string
+ */
+export function getTime(stringDate) {
+  const date = new Date(stringDate);
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  return hours + ":" + minutes;
+}
+/**
+ *
+ * @param {string} str string which is to be shortened
+ * @param {int} len number of allowed chars
+ * @returns shortened string
+ */
 export function truncateStr(str, len) {
   str = str.length < len ? str : str.substring(0, len) + "...";
   return str;
 }
-
-export function groupEventByDay(events) {
+/**
+ *
+ * @param {array} events
+ * @returns
+ */
+export function groupEventsByDay(events) {
   // this gives an object with dates as keys
   let groupArray = {};
   events.forEach((event) => {

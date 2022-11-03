@@ -1,6 +1,6 @@
 <template>
   <div class="search-wrapper d-flex align-items-center">
-    <div class="icon px-3"><i class="bi bi-search"></i></div>
+    <div class="icon pe-3"><i class="bi bi-search"></i></div>
     <div class="input-wrapper">
       <input
         type="text"
@@ -16,7 +16,7 @@
 <script>
 import { inject } from "vue";
 import {
-  groupEventByDay,
+  groupEventsByDay,
   sortEventsByDate,
   filterEvents,
   filterByQuery,
@@ -59,7 +59,7 @@ export default {
       visibleEvents = sortEventsByDate(visibleEvents);
 
       /**group events by day */
-      const eventsByDay = groupEventByDay(visibleEvents);
+      const eventsByDay = groupEventsByDay(visibleEvents);
       this.store.state.visibleEvents = eventsByDay;
       this.store.state.eventsInit = true;
     },

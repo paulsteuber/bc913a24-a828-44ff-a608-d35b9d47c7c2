@@ -12,7 +12,7 @@
     <div v-else>
       <div v-if="store.state.eventsInit">
         <div class="no-results d-flex justify-content-center p-4 m-4">
-          <h3>Keine Suchergebnisse</h3>
+          <h3>No Results</h3>
         </div>
       </div>
       <div v-else>

@@ -23,7 +23,7 @@ import {
   filterByQuery,
   filterEvents,
   sortEventsByDate,
-  groupEventByDay,
+  groupEventsByDay,
 } from "../helpers/format";
 export default {
   name: "ShoppingCartEvent",
@@ -69,7 +69,7 @@ export default {
       visibleEvents = sortEventsByDate(visibleEvents);
 
       /**group events by day */
-      const eventsByDay = groupEventByDay(visibleEvents);
+      const eventsByDay = groupEventsByDay(visibleEvents);
       this.store.state.visibleEvents = eventsByDay;
     },
   },

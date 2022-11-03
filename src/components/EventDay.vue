@@ -1,11 +1,11 @@
 <template>
-  <div class="day shadow my-4">
+  <div class="day my-4 pb-4">
     <div class="day-header p-4">
       <h3 class="day-headline p-2 shadow-sm d-inline-block">
         {{ dayHeadline }}
       </h3>
     </div>
-    <div class="events p-4">
+    <div class="events px-4 pb-4">
       <div class="row">
         <div
           class="event col-md-4 p-2"
@@ -51,6 +51,7 @@ export default {
 </script>
 <style lang="sass" scoped>
 .day
+  background-color: white
   border-radius: var(--bs-border-radius-xl)
   .day-header
     top: 70px

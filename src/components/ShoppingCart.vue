@@ -12,7 +12,7 @@
       >
         <i class="bi bi-arrow-left"></i><span class="px-3">Close</span>
       </div>
-      <div class="h3 px-4">Warenkorb</div>
+      <div class="h6 px-4 fw-bolder m-0">Shopping Card</div>
     </div>
     <div class="list">
       <div
@@ -41,7 +41,6 @@ export default {
       this.store.state.shoppingCartVisible = false;
     },
   },
-  data() {},
 };
 </script>
 
@@ -52,7 +51,7 @@ export default {
   top: 0
   right: 0
   height: 100%
-  min-width: 240px
+  min-width: 320px
   width: 25vw
   background-color: var(--bs-cyan)
   transform: translateX(100%)
