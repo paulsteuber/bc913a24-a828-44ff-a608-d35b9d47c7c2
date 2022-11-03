@@ -21,6 +21,15 @@ npm run serve
 ```
 
 ## Navigate through Event App
-![alt text](src/assets/teclead_coding1.png?raw=true)
+![Overview](src/assets/teclead_coding1.png?raw=true)
+
+### Use Search Function
+While typing in the input field, the app filters all matching events. 
+
+![Search Function](src/assets/teclead_coding2.png?raw=true)
+
+### Add Event to Shopping Cart
+You can add events to your Shopping Cart. After adding the event will disapear from the main list. 
 
 
+![Search Function](src/assets/teclead_coding3.png?raw=true)
