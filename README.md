@@ -7,29 +7,20 @@ This Event App is "just" a coding challenge. It lists events that it gets from a
 
 ## Project setup
 
-###Clone this GitHub repository
+### Clone this GitHub repository
 ```
 git clone https://github.com/paulsteuber/bc913a24-a828-44ff-a608-d35b9d47c7c2.git
 ````
-###Install all required packages
+### Install all required packages
 ```
 npm install
 ```
-
 ### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Navigate through Event App
+![alt text](src/assets/teclead_coding1.png?raw=true)
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
